@@ -70,3 +70,39 @@ async function getWeather() {
     document.getElementById("weatherResult").innerHTML = "Error fetching weather.";
   }
 }
+
+// =======================
+// Auto-detect location weather
+// =======================
+async function getLocalWeather() {
+  const apiKey = "YOUR_REAL_API_KEY"; // paste your actual OpenWeatherMap key here
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(async (position) => {
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+
+      const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        if (data.cod === 200) {
+          document.getElementById("weatherResult").innerHTML =
+            `<h2>${data.name}</h2>
+             <p>Temperature: ${data.main.temp} °C</p>
+             <p>Condition: ${data.weather[0].description}</p>`;
+        } else {
+          document.getElementById("weatherResult").innerHTML = "Unable to detect local weather.";
+        }
+      } catch (error) {
+        document.getElementById("weatherResult").innerHTML = "Error fetching local weather.";
+      }
+    }, () => {
+      document.getElementById("weatherResult").innerHTML = "Location access denied.";
+    });
+  } else {
+    document.getElementById("weatherResult").innerHTML = "Geolocation not supported.";
+  }
+}
