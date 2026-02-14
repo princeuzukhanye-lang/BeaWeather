@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Agreement - BeaWeather</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="front">
+  <div class="agreement-container">
+    <h2>User Agreement</h2>
+    <p>Please read and accept the terms to continue.</p>
+    <label>
+      <input type="checkbox" id="agreeBox"> I have read and accept all terms
+    </label><br><br>
+    <button onclick="proceedToWeather()">Continue</button>
+  </div>
+  <script>
+    function proceedToWeather() {
+      if (document.getElementById("agreeBox").checked) {
+        window.location.href = "weather.html";
+      } else {
+        alert("Please accept the terms to continue.");
+      }
+    }
+  </script>
+</body>
+</html>
