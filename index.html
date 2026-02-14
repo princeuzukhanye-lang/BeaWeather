@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BeaWeather</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="front">
+  <!-- Splash Screen -->
+  <div id="splash">
+    <div class="sun"></div>
+    <h1>BeaWeather</h1>
+    <p>from Beatrice Technologies (Pty) Ltd</p>
+  </div>
+
+  <!-- Welcome Screen -->
+  <div id="welcome" style="display:none;">
+    <h2>Welcome!</h2>
+    <p>Create an account or log in</p>
+    <button onclick="showRegister()">Register</button>
+    <button onclick="showLogin()">Log In</button>
+  </div>
+
+  <!-- Login/Register Forms -->
+  <div id="loginBox" class="form-box" style="display:none;">
+    <input type="text" id="username" placeholder="Username"><br>
+    <input type="password" id="password" placeholder="Password"><br>
+    <button onclick="login()">Log In</button>
+  </div>
+
+  <div id="registerBox" class="form-box" style="display:none;">
+    <input type="text" id="newUsername" placeholder="Choose a Username"><br>
+    <input type="password" id="newPassword" placeholder="Choose a Password"><br>
+    <button onclick="register()">Register</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
