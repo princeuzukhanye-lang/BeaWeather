@@ -15,3 +15,25 @@
   <script src="script.js"></script>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BeaWeather App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="chat">
+  <h1>BeaWeather</h1>
+  <div class="weather-container">
+    <input type="text" id="cityInput" placeholder="Enter city name">
+    <button onclick="getWeather()">Get Weather</button>
+    <div id="weatherResult"></div>
+  </div>
+  <script src="script.js"></script>
+  <script>
+    // Auto-load local weather on page open
+    window.onload = getLocalWeather;
+  </script>
+</body>
+</html>
